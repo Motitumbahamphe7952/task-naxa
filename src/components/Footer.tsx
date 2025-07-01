@@ -5,6 +5,7 @@ import ukFlag from '../assets/logo.png'
 import { IoMdCall } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import LanguageAccordion from './LanguageAccordian';
 
 const Footer: React.FC = () => {
   return (
@@ -48,10 +49,11 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mt-10 mx-auto px-6 py-4 flex flex-col border-t-2 sm:flex-row justify-between items-center gap-4 text-sm text-gray-600">
-        <div className="flex items-center space-x-2">
+        {/* <div className="flex items-center space-x-2">
           <img src={ukFlag} alt="English" className="w-5 h-5 object-contain" />
           <span>English</span>
-        </div>
+        </div> */}
+         <LanguageAccordion />
 
         <div className="flex items-center space-x-6">
           <a href="#" className="hover:underline">Privacy policy</a>
