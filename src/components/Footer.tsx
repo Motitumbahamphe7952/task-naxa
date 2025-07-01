@@ -49,10 +49,6 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mt-10 mx-auto px-6 py-4 flex flex-col border-t-2 sm:flex-row justify-between items-center gap-4 text-sm text-gray-600">
-        {/* <div className="flex items-center space-x-2">
-          <img src={ukFlag} alt="English" className="w-5 h-5 object-contain" />
-          <span>English</span>
-        </div> */}
          <LanguageAccordion />
 
         <div className="flex items-center space-x-6">
