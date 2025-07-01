@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logoEn from "../assets/logo1.png";
 import logoNp from "../assets/logo2.png";
@@ -18,6 +18,16 @@ const Navbar = () => {
     setIsNepali(checked)
     dispatch(setLang(checked ? "np" : "en"))
   }
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <nav className="fixed inset-x-0 w-[90%] h-auto pt-4 px-6 flex justify-between items-center z-10 text-white text-lg mx-auto">
       <div className="flex items-center w-full h-auto">
@@ -28,10 +38,10 @@ const Navbar = () => {
         />
       </div>
       <div className="flex items-center space-x-6">
-        <NavLink to="/data" className="hover:text-blue-950 transition">
+        <NavLink to="/data" className={`hover:text-blue-950 transition ${scrolled ? 'text-blue-500' : ''}`}>
           {translations[lang].data}
         </NavLink>
-        <NavLink to="/about" className="hover:text-blue-950 transition">
+        <NavLink to="/about" className={`hover:text-blue-950 transition ${scrolled ? 'text-blue-500' : ''}`}>
           {translations[lang].about}
         </NavLink>
 
