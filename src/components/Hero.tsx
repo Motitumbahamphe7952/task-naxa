@@ -10,10 +10,10 @@ const Hero = () => {
     <div className="w-full h-auto min-h-[60vh] md:h-[80vh] bg-gradient-to-b from-blue-500 to-[#0156b8] rounded-b-2xl">
       <div className="flex flex-col customxl:flex-row items-center justify-center h-full p-4 md:p-0">
         <div className="md:mx-20 mx-4 mt-8 md:mt-0 text-center md:text-left">
-          <h1 className="text-white text-4xl md:text-6xl font-bold">
+          <h1 className="text-white text-2xl sm:text-4xl md:text-6xl font-bold">
             {translations[lang].heroHeading}
           </h1>
-          <p className="text-white mt-2 text-lg md:text-base">
+          <p className="text-white mt-2 text-xs sm:text-lg md:text-base">
             {translations[lang].heroSubHeading}
           </p>
         </div>

@@ -1,7 +1,5 @@
 import React from 'react'
 import govLogo from '../assets/logo.png'
-import projectLogo from '../assets/logo.png'
-import ukFlag from '../assets/logo.png'
 import { IoMdCall } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
@@ -9,7 +7,7 @@ import LanguageAccordion from './LanguageAccordian';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t shadow-md mt-10 h-[40vh]">
+    <footer className="bg-white border-t mt-10 h-[40vh]">
       <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 ">
         <div className="flex flex-row space-y-4 gap-2">
           <img src={govLogo} alt="Government Logo" className="h-12 object-contain" />

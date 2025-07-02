@@ -1,143 +1,97 @@
-import type { RootState } from "@/store";
-import { useSelector } from "react-redux";
-import translations from "./Translations";
-import govLogo from "../assets/logo.png"; // Adjust the path as necessary
+
+
+import type { RootState } from "@/store"
+import { useSelector } from "react-redux"
+import translations from "./Translations"
+import govLogo from "../assets/logo.png"
 
 const DataSource = () => {
-  const lang = useSelector((state: RootState) => state.language.lang);
+  const lang = useSelector((state: RootState) => state.language.lang)
+
   return (
-    <div className="min-h-screen bg-[#dcf1fe] mt-10 rounded-md p-20 gap-4">
-      <div className="flex flex-col items-center text-center mx-36">
-        <h1 className="text-5xl font-semibold pb-6">
+    <div className="min-h-screen bg-[#dcf1fe] mt-10 pt-10 rounded-b-2xl px-4 sm:px-6 md:p-12 lg:p-20">
+      <div className="max-w-4xl mx-auto text-center mb-12">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold pb-4">
           {translations[lang].datasourcetitle}
         </h1>
-        <p className="text-lg text-gray-700 mt-2">
+        <p className="text-base sm:text-lg text-gray-700">
           {translations[lang].datasourceparagraph}
         </p>
       </div>
-      <div className="text-center p-10">
-        <p className="uppercase text-red-500 text-sm font-semibold">
-          {translations[lang].datasourcedatadescription[0]}
-        </p>
-        <div className="grid grid-cols-2 grid-rows-2 gap-4 mt-4 md:mx-30">
-          <div className="flex flex-row gap-2 p-4 items-center justify-center">
-            <img
-              src={govLogo}
-              alt="Government Logo"
-              className="h-12 object-contain"
-            />
-            <div className="flex flex-col">
-              <p className="text-xs font-semibold">नेपाल सरकार </p>
-              <p className="text-sm font-semibold">अर्थ मन्त्रालय</p>
+
+      <div className="max-w-5xl mx-auto space-y-12">
+        <section>
+          <p className="uppercase text-center text-red-500 text-sm font-semibold mb-4">
+            {translations[lang].datasourcedatadescription[0]}
+          </p>
+          <div className="grid grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 lg:grid-cols-2 lg:grid-rows-2">
+            {[ 
+              { lines: ["नेपाल सरकार", "अर्थ मन्त्रालय"] },
+              { lines: ["Nepal Government", "Line Ministry Budget Information System"] },
+              { lines: ["Government of Nepal", "Aid Management Information System for Nepal"] },
+              { lines: ["नेपाल सरकार", "अर्थ मन्त्रालय", "महालेखा नियन्त्रक कार्यालय"] },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="flex items-center justify-center gap-1 p-4"
+              >
+                <img src={govLogo} alt="Government Logo" className="h-12 w-auto" />
+                <div className="flex flex-col space-y-1">
+                  {item.lines.map((text, i) => (
+                    <p key={i} className={`${i === 0 ? "text-xs" : "text-sm"} font-semibold`}>
+                      {text}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <p className="uppercase text-red-500 text-sm  text-center font-semibold mb-4">
+            {translations[lang].datasourcedatadescription[1]}
+          </p>
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
+            {[
+              { lines: ["कर्णाली प्रदेश सरकार", "मुख्यमन्त्री तथा मन्त्रिपरिषद्को कार्यालय"] },
+              { lines: ["Province Government", "Provincal Line Ministry Budget Information System"] },
+              { lines: ["नेपाल सरकार", "अर्थ मन्त्रालय", "महालेखा नियन्त्रक कार्यालय"] },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="flex items-center justify-center gap-1 p-2"
+              >
+                <img src={govLogo} alt="Government Logo" className="h-12 w-auto" />
+                <div className="flex flex-col space-y-1">
+                  {item.lines.map((text, i) => (
+                    <p key={i} className={`${i === 0 ? "text-xs" : "text-sm"} font-semibold`}>
+                      {text}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <p className="uppercase text-red-500 text-sm text-center font-semibold mb-4">
+            {translations[lang].datasourcedatadescription[2]}
+          </p>
+          <div className="flex gap-4 pb-10 items-center justify-center">
+            <div className="flex items-center gap-1 p-2">
+              <img src={govLogo} alt="Government Logo" className="h-12 w-auto" />
+              <div className="flex flex-col space-y-1">
+                <p className="text-xs font-semibold">नेपाल सरकार</p>
+                <p className="text-sm font-semibold">स्थानीय तहको कोष व्यवस्थापन प्रणाली</p>
+              </div>
             </div>
           </div>
-          <div className="flex flex-row gap-2 p-4 items-center justify-center">
-            <img
-              src={govLogo}
-              alt="Government Logo"
-              className="h-12 object-contain"
-            />
-            <div className="flex flex-col text-left">
-              <p className="text-xs font-semibold">Nepal Government</p>
-              <p className="text-sm font-semibold">
-                Line Ministry Budget Information System
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-row gap-2 p-4 items-center justify-center text-left">
-            <img
-              src={govLogo}
-              alt="Government Logo"
-              className="h-12 object-contain"
-            />
-            <div className="flex flex-col">
-              <p className="text-xs font-semibold">Government of Nepal</p>
-              <p className="text-sm font-semibold">
-                Aid Management Information System for Nepal
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-row gap-2 p-4 items-center justify-center text-left">
-            <img
-              src={govLogo}
-              alt="Government Logo"
-              className="h-12 object-contain"
-            />
-            <div className="flex flex-col">
-              <p className="text-xs font-semibold">नेपाल सरकार </p>
-              <p className="text-sm font-semibold">अर्थ मन्त्रालय</p>
-              <p className="text-sm font-semibold">
-                महालेखा नियन्त्रक कार्यालय
-              </p>
-            </div>
-          </div>
-        </div>
-        <p className="uppercase text-red-500 text-sm font-semibold mt-10">
-          {translations[lang].datasourcedatadescription[1]}
-        </p>
-        <div className="grid grid-cols-3 gap-4 mt-4 md:mx-30">
-          <div className="flex flex-row gap-2 p-4 items-center justify-center text-left">
-            <img
-              src={govLogo}
-              alt="Government Logo"
-              className="h-12 object-contain"
-            />
-            <div className="flex flex-col">
-              <p className="text-xs font-semibold">कर्णाली प्रदेश सरकार</p>
-              <p className="text-sm font-semibold">
-                मुख्यमन्त्री तथा मन्त्रिपरिषद्को कार्यालय
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-row gap-2 p-4 items-center justify-center text-left">
-            <img
-              src={govLogo}
-              alt="Government Logo"
-              className="h-12 object-contain"
-            />
-            <div className="flex flex-col">
-              <p className="text-xs font-semibold">Province Government</p>
-              <p className="text-sm font-semibold">
-                Provincal Line Ministry Budget Information System
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-row gap-2 p-4 items-center justify-center text-left">
-            <img
-              src={govLogo}
-              alt="Government Logo"
-              className="h-12 object-contain"
-            />
-            <div className="flex flex-col">
-              <p className="text-xs font-semibold">नेपाल सरकार</p>
-              <p className="text-sm font-semibold">अर्थ मन्त्रालय</p>
-              <p className="text-sm font-semibold">
-                महालेखा नियन्त्रक कार्यालय
-              </p>
-            </div>
-          </div>
-        </div>
-        <p className="uppercase text-red-500 text-sm font-semibold mt-10">
-          {translations[lang].datasourcedatadescription[2]}
-        </p>
-        <div className="grid grid-cols-1 gap-4 mt-4 md:mx-30">
-          <div className="flex flex-row gap-2 p-4 items-center justify-center text-left">
-            <img
-              src={govLogo}
-              alt="Government Logo"
-              className="h-12 object-contain"
-            />
-            <div className="flex flex-col">
-              <p className="text-xs font-semibold">नेपाल सरकार</p>
-              <p className="text-sm font-semibold">
-                स्थानीय तहको कोष व्यवस्थापन प्रणाली
-              </p>
-            </div>
-          </div>
-        </div>
+        </section>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DataSource;
+export default DataSource
